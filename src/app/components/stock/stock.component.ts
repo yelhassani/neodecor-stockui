@@ -1,24 +1,12 @@
-import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';  // Import HttpClientModule for HTTP requests
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { StockService } from '../../service/stock.service';
 
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
-  styleUrls: ['./stock.component.scss'],
-  standalone: true,   // <-- Mark this component as standalone
-  imports: [
-    CommonModule,
-    HttpClientModule,  // Required for making HTTP requests
-    RouterModule
-  ],
-  providers: [
-    StockService  // Provide StockService if needed
-  ]
+  styleUrls: ['./stock.component.scss']
 })
-export class StockComponent {
+export class StockComponent implements OnInit {
   stocks: any[] = [];  // Array to store stock data
 
   constructor(private stockService: StockService) {}

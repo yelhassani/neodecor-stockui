@@ -7,34 +7,17 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api';  // Update with your backend API URL
+  private apiUrl = 'http://localhost:8080/api';  // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 
-  // Login method that sends a POST request to the backend
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<any>(`${this.apiUrl}/login`, { username, password }, { headers })
       .pipe(
         tap(response => {
-          // Store the JWT in local storage
-          localStorage.setItem('authToken', response.jwt);  // Make sure 'jwt' matches your backend's response key
+          localStorage.setItem('authToken', response.jwt);  // Store the JWT in local storage
         })
       );
-  }
-
-  // Logout method to clear JWT from localStorage
-  logout(): void {
-    localStorage.removeItem('authToken');
-  }
-
-  // Get the JWT token from local storage
-  getToken(): string | null {
-    return localStorage.getItem('authToken');
-  }
-
-  // Check if the user is logged in
-  isLoggedIn(): boolean {
-    return !!this.getToken();
   }
 }

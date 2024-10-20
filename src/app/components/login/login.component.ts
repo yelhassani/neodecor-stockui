@@ -1,24 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';  // <-- Import HttpClientModule here
-import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,  // For forms
-    HttpClientModule,  // <-- Import HttpClientModule here for HTTP requests
-    RouterModule
-  ],
-  providers: [
-    AuthService  // Ensure AuthService is provided here if using standalone component
-  ]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -26,7 +14,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService  // Inject AuthService
+    private authService: AuthService  // Inject AuthService here
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -41,11 +29,10 @@ export class LoginComponent {
       this.authService.login(username, password).subscribe(
         response => {
           console.log('Login successful', response);
-          this.router.navigate(['/stocks']);  // Redirect to stockComponent after login
+          this.router.navigate(['/stocks']);  // Redirect to StockComponent after login
         },
         error => {
           console.error('Login failed', error);
-          alert('Invalid credentials. Please try again.');
         }
       );
     }
