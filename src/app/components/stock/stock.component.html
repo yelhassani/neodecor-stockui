@@ -1,0 +1,22 @@
+<div class="stock-container">
+    <h2>Stock List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of stocks">
+          <td>{{ stock.id }}</td>
+          <td>{{ stock.name }}</td>
+          <td>{{ stock.price }}</td>
+          <td>{{ stock.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
