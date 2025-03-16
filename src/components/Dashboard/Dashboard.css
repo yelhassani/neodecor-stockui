@@ -61,7 +61,7 @@ body {
 .product-table {
   width: 90%;
   max-width: 1000px;
-  margin: 0 auto; /* ✅ Supprime le margin-top */
+  margin: 0 auto;
   border-collapse: collapse;
   background: white;
   border-radius: 8px;
@@ -76,7 +76,7 @@ body {
   padding: 12px;
   font-size: 16px;
   text-transform: uppercase;
-  text-align: left; /* ✅ Aligne le texte */
+  text-align: left;
 }
 
 /* 📌 Table Rows */
@@ -84,20 +84,20 @@ body {
   padding: 12px;
   font-size: 15px;
   border-bottom: 1px solid #ddd;
-  text-align: left; /* ✅ Assure l’alignement correct */
+  text-align: left;
 }
 
 /* 📌 Largeur des colonnes équilibrée */
 .product-table th:first-child,
 .product-table td:first-child {
-  width: 50%; /* ✅ Nom du produit plus large */
+  width: 40%;
 }
 
 .product-table th:nth-child(2),
 .product-table td:nth-child(2),
 .product-table th:nth-child(3),
 .product-table td:nth-child(3) {
-  width: 25%;
+  width: 20%;
 }
 
 /* 📌 Alternance des couleurs */
@@ -112,7 +112,7 @@ body {
   transition: background 0.3s ease-in-out;
 }
 
-/* 📌 Pagination bien placée */
+/* 📌 Pagination */
 .pagination-wrapper {
   display: flex;
   justify-content: center;
@@ -120,7 +120,6 @@ body {
   padding: 10px 0;
 }
 
-/* 📌 Pagination Controls */
 .pagination-controls {
   display: flex;
   justify-content: center;
@@ -129,7 +128,6 @@ body {
   margin-top: 20px;
 }
 
-/* 📌 Boutons Pagination */
 .pagination-controls button {
   background: #1e3c72;
   color: white;
@@ -178,7 +176,7 @@ body {
 .action-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px; /* Espacement horizontal entre les boutons */
+  gap: 10px;
   align-items: center;
 }
 
@@ -219,12 +217,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Légèrement plus foncé */
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px); /* Effet de flou sur l'arrière-plan */
+  backdrop-filter: blur(5px);
 }
 
 /* ✅ Contenu de la pop-up */
@@ -238,7 +236,6 @@ body {
   animation: fadeIn 0.3s ease-in-out;
 }
 
-/* ✅ Animation d'apparition */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -269,7 +266,7 @@ body {
 }
 
 .modal-content input {
-  width: calc(100% - 20px); /* Ajout d'un padding */
+  width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -283,60 +280,22 @@ body {
   outline: none;
 }
 
-/* ✅ Boutons alignés et espacés */
-.modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  gap: 10px;
-}
-
-/* ✅ Style des boutons */
-.save-button {
-  background: #1e3c72;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  flex: 1;
-}
-
-.save-button:hover {
-  background: #16325b;
-}
-
-.cancel-button {
-  background: #d9534f;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  flex: 1;
-}
-
-.cancel-button:hover {
-  background: #c9302c;
-}
-
-/* 📌 Conteneur de la barre de recherche et du bouton */
+/* ✅ Conteneur de la barre de recherche et du bouton */
 .top-controls {
   display: flex;
-  justify-content: space-between; /* ✅ Aligne horizontalement */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1000px;
-  margin: 15px auto; /* ✅ Centre les éléments */
+  margin: 15px auto;
   padding: 10px;
+  gap: 15px;
 }
 
-/* 🔍 Style pour la barre de recherche */
+/* 🔍 Style de la barre de recherche */
 .search-input {
-  flex: 1; /* ✅ Prend toute la place dispo sauf celle du bouton */
-  padding: 10px;
+  flex: 1;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -348,32 +307,19 @@ body {
   border-color: #1e3c72;
 }
 
-/* ➕ Style pour le bouton de création */
+/* ➕ Style du bouton de création */
 .create-button {
   background-color: #1e3c72;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 15px; /* ✅ Espace entre la barre et le bouton */
+  white-space: nowrap;
   transition: background 0.3s ease-in-out;
 }
 
 .create-button:hover {
   background-color: #162d54;
 }
-
-/* 📱 Responsive Design */
-@media (max-width: 768px) {
-  .top-controls {
-    flex-direction: column; /* ✅ Stack sur petits écrans */
-    align-items: stretch;
-  }
-
-  .search-input {
-    margin-bottom: 10px; /* ✅ Ajoute un espacement */
-  }
-}
-
