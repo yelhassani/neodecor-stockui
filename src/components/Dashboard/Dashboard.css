@@ -166,3 +166,48 @@ body {
     gap: 10px;
   }
 }
+
+/* 📌 Table Actions Column */
+.product-table th:last-child,
+.product-table td:last-child {
+  width: 15%;
+  text-align: center;
+}
+
+/* 🗑️✏️ Wrapper for Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacement horizontal entre les boutons */
+  align-items: center;
+}
+
+/* 🗑️ Delete Button */
+.delete-button, .update-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* 🔴 Supprimer */
+.delete-button {
+  color: #e74c3c;
+}
+
+.delete-button:hover {
+  transform: scale(1.2);
+  color: #c0392b;
+}
+
+/* 🟢 Modifier */
+.update-button {
+  color: #2ecc71;
+}
+
+.update-button:hover {
+  transform: scale(1.2);
+  color: #27ae60;
+}
